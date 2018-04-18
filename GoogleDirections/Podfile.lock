@@ -1,0 +1,25 @@
+PODS:
+  - Alamofire (4.7.1)
+  - GoogleMaps (2.6.0):
+    - GoogleMaps/Maps (= 2.6.0)
+  - GoogleMaps/Base (2.6.0)
+  - GoogleMaps/Maps (2.6.0):
+    - GoogleMaps/Base
+  - SwiftLint (0.25.0)
+  - Unbox (2.5.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4)
+  - GoogleMaps
+  - SwiftLint (~> 0)
+  - Unbox (~> 2)
+
+SPEC CHECKSUMS:
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
+  GoogleMaps: 42f91c68b7fa2f84d5c86597b18ceb99f5414c7f
+  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
+  Unbox: 30e437e6151a6de16139375fd4e8dd9a664cfbf7
+
+PODFILE CHECKSUM: 8c2032f97396c741c9003f88e80d6114b4c68293
+
+COCOAPODS: 1.4.0
