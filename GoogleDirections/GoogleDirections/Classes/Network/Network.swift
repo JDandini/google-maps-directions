@@ -8,6 +8,7 @@
 
 import Foundation
 import Unbox
+import Alamofire
 
 struct JSONObject: Decodable {
     var dictionary: [String: Any]
@@ -19,24 +20,20 @@ struct JSONObject: Decodable {
 
 final class Network {
     static func requestJSON(_ networkRequest: NetworkRequest, completion: ((Any?, Error?) -> Void)?) {
-        do {
-            let request = try networkRequest.buildRequest()
-            let task =  URLSession.shared.dataTask(with: request, completionHandler: { (data, _, error) in
-                if let data = data {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                        completion?(json, nil)
-                    } catch let e {
-                        completion?(nil, e)
-                    }
-                } else {
-                    completion?(nil, error)
-                }
-
-            })
-            task.resume()
-        } catch let e {
-            completion?(nil, e)
+        guard let request = try? networkRequest.buildRequest() else {
+            let noRequestError = NSError(domain: "REQUEST_ERROR",
+                                         code: 403,
+                                         userInfo: [NSLocalizedDescriptionKey: "Bad Request"]) as Error
+            completion?(nil, noRequestError)
+            return
+        }
+        Alamofire.request(request).responseJSON { (response) in
+            switch response.result {
+            case .success(let json):
+                completion?(json, nil)
+            case .failure(let error):
+                completion?(nil, error)
+            }
         }
     }
 }

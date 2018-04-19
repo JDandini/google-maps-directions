@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		6221CFF939087FCC6B96A70A /* Pods_GoogleDirectionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF983AEEA65BB2B4475B3E29 /* Pods_GoogleDirectionsTests.framework */; };
+		CC1A11DC2088C7A80049DF15 /* GMStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1A11DB2088C7A80049DF15 /* GMStep.swift */; };
+		CC1A11DE2088CAD00049DF15 /* GMLeg.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1A11DD2088CAD00049DF15 /* GMLeg.swift */; };
+		CC1A11E02088CCB20049DF15 /* GMDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1A11DF2088CCB20049DF15 /* GMDirection.swift */; };
+		CCBCD1752088C19F00A937F9 /* GMGeocodedWayPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBCD1742088C19F00A937F9 /* GMGeocodedWayPoint.swift */; };
+		CCBCD1772088C29800A937F9 /* GMRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBCD1762088C29800A937F9 /* GMRoute.swift */; };
 		CCF4ADEB20879F8E00DADB3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF4ADEA20879F8E00DADB3B /* AppDelegate.swift */; };
 		CCF4ADF020879F8E00DADB3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCF4ADEE20879F8E00DADB3B /* Main.storyboard */; };
 		CCF4ADF220879F8E00DADB3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF4ADF120879F8E00DADB3B /* Assets.xcassets */; };
@@ -45,6 +50,11 @@
 		60DF6DCD37F4E770A8BFA6BC /* Pods-GoogleDirectionsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleDirectionsUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleDirectionsUITests/Pods-GoogleDirectionsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7545C5FC2E7FA82DD149C9A8 /* Pods-GoogleDirectionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleDirectionsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleDirectionsTests/Pods-GoogleDirectionsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A550EA2D9BCD6B880D6A1EA0 /* Pods-GoogleDirectionsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleDirectionsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoogleDirectionsTests/Pods-GoogleDirectionsTests.release.xcconfig"; sourceTree = "<group>"; };
+		CC1A11DB2088C7A80049DF15 /* GMStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMStep.swift; sourceTree = "<group>"; };
+		CC1A11DD2088CAD00049DF15 /* GMLeg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMLeg.swift; sourceTree = "<group>"; };
+		CC1A11DF2088CCB20049DF15 /* GMDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMDirection.swift; sourceTree = "<group>"; };
+		CCBCD1742088C19F00A937F9 /* GMGeocodedWayPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMGeocodedWayPoint.swift; sourceTree = "<group>"; };
+		CCBCD1762088C29800A937F9 /* GMRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GMRoute.swift; sourceTree = "<group>"; };
 		CCF4ADE720879F8E00DADB3B /* GoogleDirections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoogleDirections.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF4ADEA20879F8E00DADB3B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCF4ADEF20879F8E00DADB3B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +126,18 @@
 				F9416707624447DC32F5A8B5 /* Pods_GoogleDirectionsUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCBCD1732088C11B00A937F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCBCD1742088C19F00A937F9 /* GMGeocodedWayPoint.swift */,
+				CC1A11DD2088CAD00049DF15 /* GMLeg.swift */,
+				CCBCD1762088C29800A937F9 /* GMRoute.swift */,
+				CC1A11DB2088C7A80049DF15 /* GMStep.swift */,
+				CC1A11DF2088CCB20049DF15 /* GMDirection.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CCF4ADDE20879F8E00DADB3B = {
@@ -208,6 +230,7 @@
 		CCF4AE232087AD8200DADB3B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CCBCD1732088C11B00A937F9 /* Model */,
 				CCF4AE242087AD9D00DADB3B /* Decodable.swift */,
 				CCF4AE2A2087B22600DADB3B /* GoogleMapsDirectionsMode.swift */,
 			);
@@ -553,11 +576,16 @@
 			files = (
 				CCF4AE2B2087B22600DADB3B /* GoogleMapsDirectionsMode.swift in Sources */,
 				CCF4AE1D2087A1CA00DADB3B /* NetworkRequest.swift in Sources */,
+				CCBCD1772088C29800A937F9 /* GMRoute.swift in Sources */,
 				CCF4AE292087B08600DADB3B /* GoogleDirectionsRequest.swift in Sources */,
 				CCF4AE252087AD9D00DADB3B /* Decodable.swift in Sources */,
+				CC1A11E02088CCB20049DF15 /* GMDirection.swift in Sources */,
+				CC1A11DE2088CAD00049DF15 /* GMLeg.swift in Sources */,
 				CCF4ADEB20879F8E00DADB3B /* AppDelegate.swift in Sources */,
 				CCF4AE2E2087BBDF00DADB3B /* DirectionsViewController.swift in Sources */,
+				CCBCD1752088C19F00A937F9 /* GMGeocodedWayPoint.swift in Sources */,
 				CCF4AE222087A6EC00DADB3B /* Network.swift in Sources */,
+				CC1A11DC2088C7A80049DF15 /* GMStep.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

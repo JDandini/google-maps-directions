@@ -24,9 +24,17 @@ class DirectionsViewController: UIViewController {
                                                        longitude: -99.167695)
 
         let request = GoogleDirectionsRequest.directionsWithCoordinates(origin: chapultepecCastle, destination: garibaldiPlaza, mode: .bicycle, wayPoints: [reforma77, independenceAngel], apiKey: apiKey)
+
         Network.requestJSON(request) { (result, error) in
-            print(result ?? "" )
-            print(error ?? "")
+
+            if let e = error {
+                print(e.localizedDescription)
+            }
+            if let jsonDic = result as? JSON, let direction = GMDirection(json: jsonDic) {
+                print("status: \(direction.status ?? "")")
+                print("\n\npolyline: \(direction.routes?.first?.overviewPolyline ?? "")")
+            }
+
         }
     }
 }
